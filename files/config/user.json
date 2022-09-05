@@ -1,1 +1,8 @@
-
+{
+    "UserName":"TWSE_user",
+    "ProgramName":"@TWSE",
+    "LoadBanner":{
+        "way1":"files\\banner",
+        "way2":"banner"
+    }
+}
