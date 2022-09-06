@@ -708,15 +708,117 @@ def _quit():
     os.remove(r'files\config\system.json')
     print('Exit')
 
+def open_again():
+    try:
+        debugL=open(r'files\log\debug.log', 'a', encoding='utf-8')
+    except FileNotFoundError:
+        debugL=open(r'DEBUG.log', 'w', encoding='utf-8')
+    try:
+        errorL=open(r'files\log\error.log', 'a', encoding='utf-8')
+    except FileNotFoundError:
+        errorL=open(r'ERROR.log', 'w', encoding='utf-8')
+    try:
+        generalL=open(r'files\log\general.log', 'a', encoding='utf-8')
+    except FileNotFoundError:
+        generalL=open(r'GENERAL.log', 'w', encoding='utf-8')
+    
 class methods:
+    def _save_log(self=Any):
+        debugL.close()
+        errorL.close()
+        generalL.close()
     from bs4 import BeautifulSoup
     log = load_pyc_files(r'log.pyc')
-    def break_num():
-        pass
-    def break_ip_2ip(self):
+    def get_proxy(self, systemC):
         from requests import get
-        debugL.write(self.log.debug(View='txt', Text='Attempt - Completed!')+'\n')
-        clear()
+        debugL.write(self.log.debug(View='txt', Text='Attempt - Compeleted!', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+        generalL.write(self.log.debug(View='txt', Text='Attempt - Completed!', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+        if systemC["ClearEveryTime"] == "No":
+            pass
+        elif systemC["ClearEveryTime"] == "Yes":
+            clear()
+        send_request=get('https://htmlweb.ru/json/proxy/get?country=RU&perpage=5')
+        debugL.write(self.log.debug(View='txt', Text='Send request -> https://htmlweb.ru/json/proxy/get?country=RU&perpage=5', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+        generalL.write(self.log.debug(View='txt', Text='Send request -> https://htmlweb.ru/json/proxy/get?country=RU&perpage=5', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+        answer=send_request
+        soup_json=self.BeautifulSoup(answer.text, 'html.parser').text.strip()
+        debugL.write(self.log.debug(View='txt', Text='Get json', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+        generalL.write(self.log.debug(View='txt', Text='Get json', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+        site_json=loads(soup_json)
+        debugL.write(self.log.debug(View='txt', Text='Read json answer', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+        generalL.write(self.log.debug(View='txt', Text='Read json answer', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+        Handler=site_json
+        try:
+            self.log.info(View='str', Text=Handler["0"]["name"], WriteTime=True)
+            debugL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["name"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            generalL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["name"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            self.log.info(View='str', Text=Handler["0"]["type"], WriteTime=True)
+            debugL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["type"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            generalL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["type"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            self.log.info(View='str', Text=Handler["0"]["country"], WriteTime=True)
+            debugL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["country"], WriteTime=True)"'))
+            generalL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["country"], WriteTime=True)"'))
+        except KeyError:
+            pass
+        try:
+            self.log.info(View='str', Text=Handler["1"]["name"], WriteTime=True)
+            debugL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["name"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            generalL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["name"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            self.log.info(View='str', Text=Handler["1"]["type"], WriteTime=True)
+            debugL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["type"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            generalL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["type"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            self.log.info(View='str', Text=Handler["1"]["country"], WriteTime=True)
+            debugL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["country"], WriteTime=True)"'))
+            generalL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["country"], WriteTime=True)"'))
+        except KeyError:
+            pass
+        try:
+            self.log.info(View='str', Text=Handler["2"]["name"], WriteTime=True)
+            debugL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["name"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            generalL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["name"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            self.log.info(View='str', Text=Handler["2"]["type"], WriteTime=True)
+            debugL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["type"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            generalL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["type"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            self.log.info(View='str', Text=Handler["2"]["country"], WriteTime=True)
+            debugL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["country"], WriteTime=True)"'))
+            generalL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["country"], WriteTime=True)"'))
+        except KeyError:
+            pass
+        try:
+            self.log.info(View='str', Text=Handler["3"]["name"], WriteTime=True)
+            debugL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["name"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            generalL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["name"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            self.log.info(View='str', Text=Handler["3"]["type"], WriteTime=True)
+            debugL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["type"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            generalL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["type"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            self.log.info(View='str', Text=Handler["3"]["country"], WriteTime=True)
+            debugL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["country"], WriteTime=True)"'))
+            generalL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["country"], WriteTime=True)"'))
+        except KeyError:
+            pass
+        try:
+            self.log.info(View='str', Text=Handler["4"]["name"], WriteTime=True)
+            debugL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["name"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            generalL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["name"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            self.log.info(View='str', Text=Handler["4"]["type"], WriteTime=True)
+            debugL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["type"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            generalL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["type"], WriteTime=True)"', Sender=__name__+'.py<class methods><get_proxy>', TypeMSG='Message', WriteTime=True)+'\n')
+            self.log.info(View='str', Text=Handler["4"]["country"], WriteTime=True)
+            debugL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["country"], WriteTime=True)"'))
+            generalL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=Handler["0"]["country"], WriteTime=True)"'))
+        except KeyError:
+            pass
+        self._save_log()
+        cont=input('')
+        open_again()
+    def break_ip_2ip(self, systemC):
+        from requests import get
+        debugL.write(self.log.debug(View='txt', Text='Attempt - Completed!', Sender=__name__+'.py<class methods><break_ip_2ip>', TypeMSG='Message', WriteTime=True)+'\n')
+        generalL.write(self.log.debug(View='txt', Text='Attempt - Completed!', Sender=__name__+'.py<class methods><break_ip_2ip>', TypeMSG='Message', WriteTime=True)+'\n')
+        if systemC["ClearEveryTime"] == "No":
+            pass
+        elif systemC["ClearEveryTime"] == "Yes":
+            clear()
         print('Break IP use API 2IP')
         debugL.write(self.log.debug(View='txt', Text=f'Output next -> "Break IP use API 2IP"', Sender=__name__+'.py<class methods><break_ip_2ip>', TypeMSG='Message', WriteTime=True)+'\n')
         generalL.write(self.log.debug(View='txt', Text=f'Output next -> "Break IP use API 2IP"', Sender=__name__+'.py<class methods><break_ip_2ip>', TypeMSG='Message', WriteTime=True)+'\n')
@@ -766,28 +868,59 @@ class methods:
             self.log.info(View='str', Text='Not Found', WriteTime=True)
             debugL.write(self.log.debug(View='txt', Text='Use module "info(View=\'str\', Text=\'Not Found\', WriteTime=True)"', Sender=__name__+'.py<class methods><break_ip_2ip>', TypeMSG='Message', WriteTime=True)+'\n')
             generalL.write(self.log.info(View='txt', Text='Not Found', WriteTime=True)+'\n')
-        _quit()
+        self._save_log()
+        cont=input('')
+        open_again()
 
 class _console(methods):
     log = load_pyc_files(r'log.pyc')
+    with open(r'files\config\user.json') as file_user:
+        data_user=load(file_user)
+    def __choice__(self):
+        debugL.write(self.log.debug(View='txt', Text=f'Attempt - Completed!', Sender=__name__+'.py<class _console><__choice__>', TypeMSG='Message', WriteTime=True)+'\n')
+        generalL.write(self.log.debug(View='txt', Text=f'Attempt - Completed!', Sender=__name__+'.py<class _console><__choice__>', TypeMSG='Message', WriteTime=True)+'\n')
+        while True:
+            choice=input(f'{self.data_user["UserName"]}{self.data_user["ProgramName"]}> ')
+            if choice=="ip":
+                super().break_ip_2ip()
     def __main__(self):
         debugL.write(self.log.debug(View='txt', Text=f'Start file {__name__}.py', Sender=__name__+'.py', TypeMSG='Message', WriteTime=True)+'\n')
         generalL.write(self.log.debug(View='txt', Text=f'Start file {__name__}.py', Sender=__name__+'.py', TypeMSG='Message', WriteTime=True)+'\n')
-        CreateCOLConfig()
-        debugL.write(self.log.debug(View='txt', Text='Call "CreateCOLConfig"', Sender=__name__+'.py', TypeMSG='Message', WriteTime=True)+'\n')
-        generalL.write(self.log.debug(View='txt', Text='Call "CreateCOLConfig"', Sender=__name__+'.py', TypeMSG='Message', WriteTime=True)+'\n')
         CreateSYSConfig()
-        debugL.write(self.log.debug(View='txt', Text='Call "CreateSYSConfig"', Sender=__name__+'.py', TypeMSG='Message', WriteTime=True)+'\n')
-        generalL.write(self.log.debug(View='txt', Text='Call "CreateSYSConfig"', Sender=__name__+'.py', TypeMSG='Message', WriteTime=True)+'\n')
         unzip_config()
-        debugL.write(self.log.debug(View='txt', Text='Call "unzip_config"', Sender=__name__+'.py', TypeMSG='Message', WriteTime=True)+'\n')
-        generalL.write(self.log.debug(View='txt', Text='Call "unzip_config"', Sender=__name__+'.py', TypeMSG='Message', WriteTime=True)+'\n')
-        debugL.write(self.log.debug(View='txt', Text='Trying call "break_ip_2ip"', Sender=__name__+'.py', TypeMSG='Message', WriteTime=True)+'\n')
-        generalL.write(self.log.debug(View='txt', Text='Trying call "break_ip_2ip"', Sender=__name__+'.py', TypeMSG='Message', WriteTime=True)+'\n')
-        try:
-            super().break_ip_2ip()
-        except:
-            errorL.write(self.log.error(View='txt', Text='Attempt - Bad!. Error with module or ALL classes', Sender=__name__+'.py', TypeError='Important', TypeMSG='Message', WriteTime=True)+'\n')
-            self.log.error(View='str', Text='Attempt - Bad!. Error with module or ALL classes', Sender=__name__+'.py', TypeError='Important', TypeMSG='Message', WriteTime=True)
-            generalL.write(self.log.error(View='txt', Text='Attempt - Bad!. Error with module or ALL classes', Sender=__name__+'.py', TypeError='Important', TypeMSG='Message', WriteTime=True)+'\n')
-            _quit()
+        debugL.write(self.log.debug(View='txt', Text=f'Start create "system.json"', Sender=__name__+'.py', TypeMSG='Message', WriteTime=True)+'\n')
+        generalL.write(self.log.debug(View='txt', Text=f'Start create "system.json"', Sender=__name__+'.py', TypeMSG='Meesage', WriteTime=True)+'\n')
+        with open(r'files\config\system.json') as file_system:
+            data=load(file_system)
+        print(data["StartClearWindow"])
+        if data["StartClearWindow"] == "Yes":
+            clear()
+        elif data["StartClearWindow"] == "No":
+            pass
+        if data["StartShowBanner"] == "Yes":
+            try:
+                with open(r'files\%s' % (self.data_user["LoadBanner"]["way1"]), 'r') as banner:
+                    banner.seek(0)
+                    print(banner.read())
+                debugL.write(self.log.debug(View='txt', Text='Trying call "__choice__"', Sender=__name__+'.py', TypeMSG='Message', WriteTime=True))
+                generalL.write(self.log.debug(View='txt', Text='Trying call "__choice__"', Sender=__name__+'.py', TypeMSG='Message', WriteTime=True))
+                self.__choice__()
+            except FileNotFoundError:
+                generalL.write(self.log.warning(View='txt', Text='Not Found File -> %s' % (self.data_user["LoadBanner"]["way1"]), TypeMSG='Message', WriteTime=True))
+                try:
+                    with open(r'files\%s' % (self.data_user["LoadBanner"]["way2"]), 'r') as banner:
+                        banner.seek(0)
+                        print(banner.read())
+                    debugL.write(self.log.debug(View='txt', Text='Trying call "__choice__"', Sender=__name__+'.py', TypeMSG='Message', WriteTime=True))
+                    generalL.write(self.log.debug(View='txt', Text='Trying call "__choice__"', Sender=__name__+'.py', TypeMSG='Message', WriteTime=True))
+                    self.__choice__()
+                except FileNotFoundError:
+                    errorL.write(self.log.error(View='txt', Text='Not Found File -> %s' % (self.data_user["LoadBanner"]["way2"]), TypeMSG='Message', WriteTime=True))
+                    generalL.write(self.log.error(View='txt', Text='Not Found File -> %s' % (self.data_user["LoadBanner"]["way2"]), TypeMSG='Message', WriteTime=True))
+                    self.log.error(View='str', Text='Not Found File -> %s' % (self.data_user["LoadBanner"]["way2"]), TypeMSG='Message', WriteTime=True)
+                    _quit()
+        elif data["StartShowBanner"] == "No":
+            pass
+        debugL.write(self.log.debug(View='txt', Text='Trying call "__choice__"', Sender=__name__+'.py', TypeMSG='Message', WriteTime=True))
+        generalL.write(self.log.debug(View='txt', Text='Trying call "__choice__"', Sender=__name__+'.py', TypeMSG='Message', WriteTime=True))
+        self.__choice__()
