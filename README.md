@@ -19,3 +19,8 @@
 <b>1. add Russian language</b><br>
 <b>2. more extensive settings under user</b><br>
 <b>3. additions of new functions</b><br>
+<br><br><br><br>
+# Contact with the developer
+
+https://vk.com/nikitasos1ska
+https://vk.com/twse_newoffc
