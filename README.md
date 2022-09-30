@@ -23,4 +23,4 @@
 # Contact with the developer
 
 https://vk.com/nikitasos1ska
-https://vk.com/twse_newoffc
+https://vk.com/twse_newsoffc
