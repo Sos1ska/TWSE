@@ -1,0 +1,1 @@
+{"Start Clear Window": "Yes", "Start Show Banner": "Yes", "Clear Every Time": "Yes", "DebugMode": "Yes", "Record Info in DataBase": "Yes", "Ways": {"info": "files\\log\\info.log", "error": "files\\log\\error.log", "debug": "files\\log\\debug.log", "warning": "files\\log\\warn.log", "general": "files\\log\\general.log"}}
