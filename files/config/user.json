@@ -2,7 +2,8 @@
     "UserName":"TWSE_user",
     "ProgramName":"@TWSE",
     "LoadBanner":{
-        "way1":"files\\banner",
-        "way2":"banner"
-    }
+        "way1":"banner",
+        "way2":"files\\banner"
+    },
+    "Language":"ENG"
 }
