@@ -14,6 +14,7 @@
 
 The program works with the global network, looking for information on popular api. <br>Can find where the phone number, IP address (also if it is a mobile IP), MAC address and its information, as well as getting up-to-date information about open proxy servers.<br><br>
 The program will also fill in the database about your requests (this function can be disabled in system.json)<br>
-
+In the future, the program will bypass the bot check, for more information.<br>
+It will also hide your real IP address.<br>
 https://vk.com/nikitasos1ska
 https://vk.com/twse_newsoffc
