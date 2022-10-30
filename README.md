@@ -16,5 +16,8 @@ The program works with the global network, looking for information on popular ap
 The program will also fill in the database about your requests (this function can be disabled in system.json)<br>
 In the future, the program will bypass the bot check, for more information.<br>
 It will also hide your real IP address.<br>
+# Worked?
+
+Works on Windows, Termux<br><br>
 https://vk.com/nikitasos1ska
 https://vk.com/twse_newsoffc
