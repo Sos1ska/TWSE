@@ -10,7 +10,7 @@ def systemC():
         "error":"files\\log\\error.log",
         "debug":"files\\log\\debug.log",
         "warning":"files\\log\\warn.log",
-        "general":"files\\log\\genera.log"
+        "general":"files\\log\\general.log"
     }
 }
     return a
