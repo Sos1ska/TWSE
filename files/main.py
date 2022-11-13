@@ -1739,6 +1739,6 @@ class _console:
             _console.__choice__(Any)
         elif data["Start Show Banner"] == "No":
             pass
-        autolog_color(typelog='debug', text='Trying call "__choice__"', waydebug=data["Ways"]["debug"], waygeneral=["Ways"]["general"], without_out_console=True)
+        autolog_color(typelog='debug', text='Trying call "__choice__"', waydebug=data["Ways"]["debug"], waygeneral=data["Ways"]["general"], without_out_console=True)
         try: self.__choice__()
         except AttributeError: _console.__choice__(Any)
