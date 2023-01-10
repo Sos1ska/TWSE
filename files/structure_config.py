@@ -3,7 +3,6 @@ def systemC():
     "Start Clear Window":"Yes",
     "Start Show Banner":"Yes",
     "Clear Every Time":"Yes",
-    "DebugMode":"Yes",
     "Record Info in DataBase":"No",
     "Ways":{
         "info":"files\\log\\info.log",
@@ -11,19 +10,19 @@ def systemC():
         "debug":"files\\log\\debug.log",
         "warning":"files\\log\\warn.log",
         "general":"files\\log\\general.log"
+    },
+    "DataBase":{
+        "Way":"files\\database\\",
+        "Name":"information.db"
     }
 }
     return a
-def color():
+
+def user():
     a = {
-    "Color Banner":"white",
-    "Color Text":"yellow",
-    "Color True Answer":"green",
-    "Color False Answer":"red",
-    "Color Back Banner":"black",
-    "Color Back Text":"black",
-    "Color Back True Answer":"black",
-    "Color Back False Answer":"black"
-}
+        "NickName":"TWSEUser",
+        "ProgramName":"@TWSE",
+        "Language":"RUS"
+    }
 
     return a
