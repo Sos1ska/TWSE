@@ -230,4 +230,5 @@ exit -> Exit''')
 
 
 class _console:
+    with open(path_os(r'files/banner'), 'r') as file_banner : print(file_banner.read())
     _methods()
