@@ -9,8 +9,10 @@ def _insert(way, table, *info):
     match table:
         case "IP":
             cur.execute("""INSERT INTO IP VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""", data_local)
+            connect_db.commit()
         case "Number":
             cur.execute("""INSERT INTO Number_phone VALUES(?, ?, ?, ?, ?, ?)""", data_local)
+            connect_db.commit()
         case "MAC":
             cur.execute("""INSERT INTO MAC VALUES(?, ?, ?)""", data_local)
-        
+            connect_db.commit()
