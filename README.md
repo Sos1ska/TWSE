@@ -20,7 +20,7 @@ https://vk.com/nikitasos1ska
 https://vk.com/twse_newsoffc
 
 # Work through Proxy?
-1. Create file with name <code>proxy.json</code><br>
+1. Create file in <code>files/config</code> with name <code>proxy.json</code><br>
 2. Record proxy connection ip. Example <code>{"http": "http://8.219.97.248:80"}</code><br>
 3. It will work in a minute, because. proxy server is checking for connection<br>
 <b>Important : The program will always send a request through proxy if the file is created. If file empty, return error</b><br>
