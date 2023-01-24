@@ -3,7 +3,7 @@
 ![GitHub contributors](https://img.shields.io/badge/GitHub%20Contributors-1-blue)
 
 # Version
-2.0
+3.0
 
 # Required
 <code>requests</code><br>
@@ -14,6 +14,13 @@
 
 # Worked?
 
+<code>Python 3.10+</code><br>
 Works on Windows, Termux<br><br>
 https://vk.com/nikitasos1ska
 https://vk.com/twse_newsoffc
+
+# Work through Proxy?
+1. Create file with name <code>proxy.json</code><br>
+2. Record proxy connection ip. Example <code>{"http": "http://8.219.97.248:80"}</code><br>
+3. It will work in a minute, because. proxy server is checking for connection<br>
+<b>Important : The program will always send a request through proxy if the file is created. If file empty, return error</b><br>
