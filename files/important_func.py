@@ -26,7 +26,6 @@ def unzip_config(record):
             autolog_color(typelog='debug', text='Starting Work module-{unzip_config}', typemsg='Message', waydebug='%s' % (path_os(r'files/log/debug.log')), waygeneral='%s' % (path_os(r'files/log/general.log')), without_out_console=False)
             try:
                 with zipfile.ZipFile('%s' % (path_os(r'files/cache/system.zip'))) as archive : archive.extractall('%s' % (path_os(r'files/config')))
-                with zipfile.ZipFile('%s' % (path_os(r'files/cache/color.zip'))) as archive3 : archive3.extractall('%s' % (path_os(r'files/config')))
                 with zipfile.ZipFile('%s' % (path_os(r'files/cache/user.zip'))) as archive5 : archive5.extractall('%s' % (path_os(r'files/config')))
             except FileNotFoundError:
                 autolog_color(typelog='error', text='Not Found File with type "zip"', typemsg='Message', wayerror=r'files\log\error.log', waygeneral='%s' % (path_os(r'files/log/general.log')), without_out_console=False)
@@ -39,7 +38,7 @@ def unzip_config(record):
             with zipfile.ZipFile('%s' % (path_os(r'files/cache/user.zip'))) as archive6 : archive6.extractall('%s' % (path_os(r'files/config')))
 
 def delete_config(record):
-    files = ['system.json', 'color.json', 'user.json']
+    files = ['system.json', 'user.json']
     match record:
         case True:
             autolog_color(typelog='debug', text='Starting Work module-{delete_config}', typemsg='Message', waydebug='%s' % (path_os(r'files/log/debug.log')), waygeneral='%s' % (path_os(r'files/log/general.log')), without_out_console=False)
